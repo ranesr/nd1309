@@ -186,7 +186,7 @@ class Blockchain {
 
     // Validate blockchain
     async validateChain() {
-        let errorLog = [];
+        var errorLog = [];
         try {
             // Get block height
             let height = await this.getBlockHeight();
