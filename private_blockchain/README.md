@@ -10,7 +10,7 @@
 - Validate the blockchain (multiple blocks)
 
 
-### Prerequisites
+### Pre-requisites
 
 Installing Node and NPM is pretty straightforward using the installer package available from the [Node.js® web site](https://nodejs.org/en/).
 
@@ -28,6 +28,7 @@ npm install
 (Testing code is already included in `simpleChain.js` towards the end)
 
 To test code:
+
 1: Open a command prompt or shell terminal after install node.js.
 
 2: Remove the `chaindata` folder if it is already present
