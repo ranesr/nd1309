@@ -29,9 +29,10 @@ The API is configured to run on localhost with port 8000.
 
 
 **GET Block**
+------
 * **URL:** `/block/{BLOCK_HEIGHT}`
 * **Method:** `GET`
-* **URL Params:** `BLOCK_HEIGHT` (Height of the block to be retrieved)
+* **URL Path Params:** `BLOCK_HEIGHT` (Height of the block to be retrieved)
 
 * **Success Response:**
     * **Code:** 200
@@ -47,18 +48,17 @@ The API is configured to run on localhost with port 8000.
 }
 ```
 
-* **Error Response:**
-    * **Code:** 400
-    * **Content:** `{"statusCode": 400, "error": "Bad Request", "message": "Please Pass A Valid Block Height"}`
+* **Error Responses:**
 
-    * **Code:** 404
-    * **Content:** `{"statusCode": 404, "error": "Not Found", "message": "Block Not Found!"}`
-
-    * **Code:** 500
-    * **Content:** `{"statusCode": 500, "error": "Internal Server Error", "message": "Error Occurred"}`
+| Code   | Content                                                                                    |
+|:------:|:-------------------------------------------------------------------------------------------|
+| 400    | {"statusCode": 400, "error": "Bad Request", "message": "Please Pass A Valid Block Height"} |
+| 404    | {"statusCode": 404, "error": "Not Found", "message": "Block Not Found!"}                   |
+| 500    | {"statusCode": 500, "error": "Internal Server Error", "message": "Error Occurred"}         |
 
 
 **POST Block**
+------
 * **URL:** `/block`
 * **Method:** `POST`
 * **Request Body:** `{"body": "Block Body"}`
@@ -77,9 +77,9 @@ The API is configured to run on localhost with port 8000.
 }
 ```
 
-* **Error Response:**
-    * **Code:** 400
-    * **Content:** `{"statusCode": 400, "error": "Bad Request", "message": "Please Pass body In The Payload"}`
+* **Error Responses:**
 
-    * **Code:** 500
-    * **Content:** `{"statusCode": 500, "error": "Internal Server Error", "message": "Error Occurred"}`
+| Code   | Content                                                                                   |
+|:------:|:------------------------------------------------------------------------------------------|
+| 400    | {"statusCode": 400, "error": "Bad Request", "message": "Please Pass body In The Payload"} |
+| 500    | {"statusCode": 500, "error": "Internal Server Error", "message": "Error Occurred"}        |
