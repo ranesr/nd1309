@@ -2,66 +2,7 @@
 |  Learn more: level - https://github.com/Level/level  |
 ===================================================== */
 
-const level = require('level');
-const chainDB = './chaindata';
-const db = level(chainDB);
-
-// Add data to levelDB with key/value pair
-async function addLevelDBData(key, value){
-    return new Promise(function(resolve, reject) {
-        db.put(key, value, function(err) {
-            if (err) {
-                console.log('Block # ' + key + ' Submission failed', err);
-                reject(err);
-            } else {
-                resolve('Added Block # ' + key + ', value: ' + value);
-            }
-        });
-    });
-}
-
-// Get data from levelDB with key
-async function getLevelDBData(key) {
-    return new Promise(function(resolve, reject) {
-        db.get(key, function(err, value) {
-            if (err) {
-                console.log('Not found!', err);
-                reject(err);
-            } else {
-                console.log(value);
-                resolve(value);
-            }
-        });
-    });
-}
-
-// Add data to levelDB with value
-async function addDataToLevelDB(value) {
-    let i = 0;
-    db.createReadStream().on('data', function(data) {
-        i++;
-    }).on('error', function(err) {
-        return console.log('Unable to read data stream!', err)
-    }).on('close', function() {
-        addLevelDBData(i, value);
-    });
-}
-
-// Get the height of blockchain
-async function getHeight() {
-    let i = -1;
-    return new Promise(function(resolve, reject) {
-        db.createReadStream().on('data', function(data) {
-            i++;
-        }).on('error', function(err) {
-            console.log('Error: ' + err);
-            reject(err);
-        }).on('close', function() {
-            resolve(i);
-        });
-    });
-}
-
+const level = require('./level.js');
 
 /* ================= SHA256 with Crypto-js ===================
 |  Learn more: Crypto-js: https://github.com/brix/crypto-js  |
@@ -122,13 +63,13 @@ class Blockchain {
                 // Block hash with SHA256 using newBlock and converting to a string
                 newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
                 // Adding block object to chain
-                let response = await addLevelDBData(newBlock.height, JSON.stringify(newBlock).toString());
+                let response = await level.addLevelDBData(newBlock.height, JSON.stringify(newBlock).toString());
                 console.log(response);
             } else {
                 // Block hash with SHA256 using newBlock and converting to a string
                 newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
                 // Adding block object to chain
-                let response = await addLevelDBData(newBlock.height, JSON.stringify(newBlock).toString());
+                let response = await level.addLevelDBData(newBlock.height, JSON.stringify(newBlock).toString());
                 console.log(response);
             }
         } catch (err) {
@@ -140,7 +81,7 @@ class Blockchain {
     async getBlockHeight() {
         try {
             // Get height
-            return await getHeight();
+            return await level.getHeight();
         } catch (err) {
             console.log(err);
         }
@@ -150,7 +91,7 @@ class Blockchain {
     async getBlock(blockHeight) {
         try {
             // Get block from Level db
-            let block = await getLevelDBData(blockHeight);
+            let block = await level.getLevelDBData(blockHeight);
             // Return object as a single string
             return JSON.parse(block);
         } catch (err) {
@@ -249,7 +190,7 @@ async function addInducedErrorBlocks() {
     for (var i = 0; i < inducedErrorBlocks.length; i++) {
         let block = await blockchain.getBlock(inducedErrorBlocks[i]);
         block.body = 'Induced Chain Error';
-        await addLevelDBData(inducedErrorBlocks[i], JSON.stringify(block));
+        await level.addLevelDBData(inducedErrorBlocks[i], JSON.stringify(block));
     }
 }
 
