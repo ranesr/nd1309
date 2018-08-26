@@ -1,0 +1,17 @@
+{
+    "name": "restful_api",
+    "version": "1.0.0",
+    "description": "Simple Blockchain RESTful Web API with Node.js Framework",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Saurabh Rane",
+    "license": "ISC",
+    "dependencies": {
+        "boom": "^7.2.0",
+        "crypto-js": "^3.1.9-1",
+        "hapi": "^17.5.3",
+        "level": "^4.0.0"
+    }
+}
