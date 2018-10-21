@@ -1,6 +1,14 @@
 # Custom
 chaindata
+stardata/
+starRegistryData/
 package-lock.json
+
+# Intellij
+.idea/
+.project
+.settings/
+*.iml
 
 # Logs
 logs
