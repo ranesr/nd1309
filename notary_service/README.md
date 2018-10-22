@@ -178,17 +178,18 @@ The API is configured to run on localhost with port 8000.
 
 * **Error Responses:**
 
-| Code   | Content                                                                                            |
-|:------:|:---------------------------------------------------------------------------------------------------|
-| 400    | {"statusCode": 400, "error": "Bad Request", "message": "Please Pass address In The Payload"}       |
-| 400    | {"statusCode": 400, "error": "Bad Request", "message": "Please Pass star In The Payload"}          |
-| 401    | {"statusCode": 401, "error": "Unauthorized", "message": "Address has no valid signature"}          |
-| 400    | {"statusCode": 400, "error": "Bad Request", "message": "Ra is required in Star"}                   |
-| 400    | {"statusCode": 400, "error": "Bad Request", "message": "Dec is required in Star"}                  |
-| 400    | {"statusCode": 400, "error": "Bad Request", "message": "Story is required in Star"}                |
-| 400    | {"statusCode": 400, "error": "Bad Request", "message": "Story contains non-ASCII characters"}      |
-| 400    | {"statusCode": 400, "error": "Bad Request", "message": "Story can have maximum size of 500 bytes"} |
-| 500    | {"statusCode": 500, "error": "Internal Server Error", "message": "Error Occurred"}                 |
+| Code | Content                                                                                            |
+|:----:|:---------------------------------------------------------------------------------------------------|
+| 400  | {"statusCode": 400, "error": "Bad Request", "message": "Please Pass address In The Payload"}       |
+| 400  | {"statusCode": 400, "error": "Bad Request", "message": "Please Pass star In The Payload"}          |
+| 400  | {"statusCode": 400, "error": "Bad Request", "message": "Star Registry Data Not Found! Please Post Validation!"} |
+| 401  | {"statusCode": 401, "error": "Unauthorized", "message": "Address has no valid signature"}          |
+| 400  | {"statusCode": 400, "error": "Bad Request", "message": "Ra is required in Star"}                   |
+| 400  | {"statusCode": 400, "error": "Bad Request", "message": "Dec is required in Star"}                  |
+| 400  | {"statusCode": 400, "error": "Bad Request", "message": "Story is required in Star"}                |
+| 400  | {"statusCode": 400, "error": "Bad Request", "message": "Story contains non-ASCII characters"}      |
+| 400  | {"statusCode": 400, "error": "Bad Request", "message": "Story can have maximum size of 500 bytes"} |
+| 500  | {"statusCode": 500, "error": "Internal Server Error", "message": "Error Occurred"}                 |
 
 
 **GET Block By Height**
@@ -228,11 +229,11 @@ The API is configured to run on localhost with port 8000.
 | 500    | {"statusCode": 500, "error": "Internal Server Error", "message": "Error Occurred"}         |
 
 
-**GET Block By Hash**
+**GET Star By Hash**
 ------
-* **URL:** `/block/hash:{BLOCK_HASH}`
+* **URL:** `/stars/hash:{HASH}`
 * **Method:** `GET`
-* **URL Path Params:** `BLOCK_HASH` (Hash of the block to be retrieved)
+* **URL Path Params:** `HASH` (Hash of the block to be retrieved)
 
 * **Success Response:**
     * **Code:** 200
@@ -264,11 +265,11 @@ The API is configured to run on localhost with port 8000.
 | 500    | {"statusCode": 500, "error": "Internal Server Error", "message": "Error Occurred"}         |
 
 
-**GET Blocks By Address**
+**GET Stars By Address**
 ------
-* **URL:** `/block/hash:{BLOCK_ADDRESS}`
+* **URL:** `/stars/hash:{ADDRESS}`
 * **Method:** `GET`
-* **URL Path Params:** `BLOCK_ADDRESS` (Address from the data of the block to be retrieved)
+* **URL Path Params:** `ADDRESS` (Address from the data of the block to be retrieved)
 
 * **Success Response:**
     * **Code:** 200

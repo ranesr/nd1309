@@ -192,8 +192,28 @@ async function validateMessageSignature(address, signature) {
     });
 }
 
+async function invalidateAddress(address) {
+    let success = false;
+    try {
+        // Delete address from star registry data
+        await starRegistryLevel.deleteStarRegistryData(address);
+        success = true;
+    } catch (err) {
+        console.log(err);
+        success = false;
+    }
+    return new Promise(function(resolve, reject) {
+        if (success) {
+            resolve(success);
+        } else {
+            reject(success);
+        }
+    });
+}
+
 module.exports.createStarRegistryData = createStarRegistryData;
 module.exports.createStarRegistryDataWithInput = createStarRegistryDataWithInput;
 module.exports.getStarRegistryData = getStarRegistryData;
 module.exports.validateMessageSignature = validateMessageSignature;
 module.exports.isValidMessageSignature = isValidMessageSignature;
+module.exports.invalidateAddress = invalidateAddress;
