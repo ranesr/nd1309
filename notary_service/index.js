@@ -135,6 +135,14 @@ var handlers = {
             };
             // Add block to the chain
             const block = await blockchain.addBlock(new Block(body));
+
+            // Invalidate address from star registry data
+            const invalidate = await starValidation.invalidateAddress(address);
+            if (!invalidate) {
+                // Error
+                return boom.badImplementation('Error Occurred');
+            }
+
             // Return block
             return reply.response(block).code(201);
         } catch (err) {
@@ -170,7 +178,7 @@ var handlers = {
         }
     },
 
-    getBlockByHash: async function (request, reply) {
+    getStarByHash: async function (request, reply) {
         console.log('GET block with BLOCK_HASH: ' + request.params.BLOCK_HASH);
         // Validate if BLOCK_HASH is not empty
         if (util.equals(request.params.BLOCK_HASH, '')) {
@@ -188,7 +196,7 @@ var handlers = {
         }
     },
 
-    getBlockByAddress: async function (request, reply) {
+    getStarsByAddress: async function (request, reply) {
         console.log('GET block with BLOCK_ADDRESS: ' + request.params.BLOCK_ADDRESS);
         // Validate if BLOCK_HASH is not empty
         if (util.equals(request.params.BLOCK_ADDRESS, '')) {
@@ -221,10 +229,10 @@ server.route([
     { path: '/block/{BLOCK_HEIGHT}',          method: 'GET',  handler: handlers.getBlock },
 
     // GET Block using Hash
-    { path: '/block/hash:{BLOCK_HASH}',       method: 'GET',  handler: handlers.getBlockByHash },
+    { path: '/stars/hash:{BLOCK_HASH}',       method: 'GET',  handler: handlers.getStarByHash },
 
     // GET Block using Address
-    { path: '/block/address:{BLOCK_ADDRESS}', method: 'GET',  handler: handlers.getBlockByAddress }
+    { path: '/stars/address:{BLOCK_ADDRESS}', method: 'GET',  handler: handlers.getStarsByAddress }
 ]);
 
 const start = async () => {
