@@ -267,7 +267,7 @@ The API is configured to run on localhost with port 8000.
 
 **GET Stars By Address**
 ------
-* **URL:** `/stars/hash:{ADDRESS}`
+* **URL:** `/stars/address:{ADDRESS}`
 * **Method:** `GET`
 * **URL Path Params:** `ADDRESS` (Address from the data of the block to be retrieved)
 
