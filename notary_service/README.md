@@ -48,20 +48,20 @@ The API is configured to run on localhost with port 8000.
 
 ```
 {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP"
+    "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP"
 }
 ```
 
 * **Success Response:**
-* **Code:** 201
-* **Content:**
+    * **Code:** 201
+    * **Content:**
 
 ```
 {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-"message": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP:1540149503436:starRegistry",
-"requestTimestamp": 1540149503437,
-"validationWindow": 300
+    "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+    "message": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP:1540149503436:starRegistry",
+    "requestTimestamp": 1540149503437,
+    "validationWindow": 300
 }
 ```
 
@@ -81,51 +81,51 @@ The API is configured to run on localhost with port 8000.
 
 ```
 {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-signature": "IBjCxKFjpgsrG79sRRLnKLBqcH6RE4/EWkdgF3wS2n3uP17Ty4AhstbyyaUXuUBFi9KrW/a+dZEG5AbuMlcdxpc="
+    "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+    signature": "IBjCxKFjpgsrG79sRRLnKLBqcH6RE4/EWkdgF3wS2n3uP17Ty4AhstbyyaUXuUBFi9KrW/a+dZEG5AbuMlcdxpc="
 }
 ```
 
 * **Success Response:**
-* **Code:** 200
-* **Content:** One of the following three responses
+    * **Code:** 200
+    * **Content:** One of the following three responses
 
 ```
 {
-"registerStar": true,
-"status": {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-"message": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP:1540148592852:starRegistry",
-"requestTimestamp": 1540148592852,
-"validationWindow": 278,
-"messageSignature": "valid"
-}
-}
-```
-
-```
-{
-"registerStar": false,
-"status": {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-"message": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP:1540148592852:starRegistry",
-"requestTimestamp": 1540148592852,
-"validationWindow": 248,
-"messageSignature": "invalid"
-}
+    "registerStar": true,
+    "status": {
+        "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+        "message": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP:1540148592852:starRegistry",
+        "requestTimestamp": 1540148592852,
+        "validationWindow": 278,
+        "messageSignature": "valid"
+    }
 }
 ```
 
 ```
 {
-"registerStar": false,
-"status": {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-"message": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP:1540149503436:starRegistry",
-"requestTimestamp": 1540149503437,
-"validationWindow": 0,
-"messageSignature": "Expired validation window!"
+    "registerStar": false,
+    "status": {
+        "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+        "message": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP:1540148592852:starRegistry",
+        "requestTimestamp": 1540148592852,
+        "validationWindow": 248,
+        "messageSignature": "invalid"
+    }
 }
+```
+
+```
+{
+    "registerStar": false,
+    "status": {
+        "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+        "message": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP:1540149503436:starRegistry",
+        "requestTimestamp": 1540149503437,
+        "validationWindow": 0,
+        "messageSignature": "Expired validation window!"
+    }
 }
 ```
 
@@ -146,33 +146,33 @@ signature": "IBjCxKFjpgsrG79sRRLnKLBqcH6RE4/EWkdgF3wS2n3uP17Ty4AhstbyyaUXuUBFi9K
 
 ```
 {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-"star": {
-"ra": "16h 29m 1.0s",
-"dec": "-26° 29' 24.9",
-"story": "My first star"
-}
+    "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+    "star": {
+        "ra": "16h 29m 1.0s",
+        "dec": "-26° 29' 24.9",
+        "story": "My first star"
+    }
 }
 ```
 
 * **Success Response:**
-* **Code:** 201
-* **Content:**
+    * **Code:** 201
+    * **Content:**
 
 ```
 {
-"hash": "06fb707b729d30c1cdf7d3cac22006be062fee9a74576ce526da5f347764c5b6",
-"height": 1,
-"body": {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-"star": {
-"ra": "16h 29m 1.0s",
-"dec": "-26° 29' 24.9",
-"story": "4d792066697273742073746172"
-}
-},
-"time": "1540150307",
-"previousBlockHash": "2034d87417d6da3412081bd05c5f4b5c855c45ea2cbd616ee89b2a23e5b4fc3e"
+    "hash": "06fb707b729d30c1cdf7d3cac22006be062fee9a74576ce526da5f347764c5b6",
+    "height": 1,
+    "body": {
+        "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+        "star": {
+            "ra": "16h 29m 1.0s",
+            "dec": "-26° 29' 24.9",
+            "story": "4d792066697273742073746172"
+        }
+    },
+    "time": "1540150307",
+    "previousBlockHash": "2034d87417d6da3412081bd05c5f4b5c855c45ea2cbd616ee89b2a23e5b4fc3e"
 }
 ```
 
@@ -199,24 +199,24 @@ signature": "IBjCxKFjpgsrG79sRRLnKLBqcH6RE4/EWkdgF3wS2n3uP17Ty4AhstbyyaUXuUBFi9K
 * **URL Path Params:** `BLOCK_HEIGHT` (Height of the block to be retrieved)
 
 * **Success Response:**
-* **Code:** 200
-* **Content:**
+    * **Code:** 200
+    * **Content:**
 
 ```
 {
-"hash": "eb62fd2d0a5ce809d7689f6f500c91dc6584b89e2d37c2d907e3366f3cd91a94",
-"height": 1,
-"body": {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-"star": {
-"ra": "16h 29m 1.0s",
-"dec": "-26° 29' 24.9",
-"story": "4d792066697273742073746172",
-"storyDecoded": "My first star"
-}
-},
-"time": "1540148618",
-"previousBlockHash": "bd2fe75d3e8a0ebd61d8edc4455397901b917b427865c4ce535eb4e13fac87da"
+    "hash": "eb62fd2d0a5ce809d7689f6f500c91dc6584b89e2d37c2d907e3366f3cd91a94",
+    "height": 1,
+    "body": {
+        "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+        "star": {
+            "ra": "16h 29m 1.0s",
+            "dec": "-26° 29' 24.9",
+            "story": "4d792066697273742073746172",
+            "storyDecoded": "My first star"
+        }
+    },
+    "time": "1540148618",
+    "previousBlockHash": "bd2fe75d3e8a0ebd61d8edc4455397901b917b427865c4ce535eb4e13fac87da"
 }
 ```
 
@@ -236,24 +236,24 @@ signature": "IBjCxKFjpgsrG79sRRLnKLBqcH6RE4/EWkdgF3wS2n3uP17Ty4AhstbyyaUXuUBFi9K
 * **URL Path Params:** `HASH` (Hash of the block to be retrieved)
 
 * **Success Response:**
-* **Code:** 200
-* **Content:**
+    * **Code:** 200
+    * **Content:**
 
 ```
 {
-"hash": "eb62fd2d0a5ce809d7689f6f500c91dc6584b89e2d37c2d907e3366f3cd91a94",
-"height": 1,
-"body": {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-"star": {
-"ra": "16h 29m 1.0s",
-"dec": "-26° 29' 24.9",
-"story": "4d792066697273742073746172",
-"storyDecoded": "My first star"
-}
-},
-"time": "1540148618",
-"previousBlockHash": "bd2fe75d3e8a0ebd61d8edc4455397901b917b427865c4ce535eb4e13fac87da"
+    "hash": "eb62fd2d0a5ce809d7689f6f500c91dc6584b89e2d37c2d907e3366f3cd91a94",
+    "height": 1,
+    "body": {
+        "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+        "star": {
+            "ra": "16h 29m 1.0s",
+            "dec": "-26° 29' 24.9",
+            "story": "4d792066697273742073746172",
+            "storyDecoded": "My first star"
+        }
+    },
+    "time": "1540148618",
+    "previousBlockHash": "bd2fe75d3e8a0ebd61d8edc4455397901b917b427865c4ce535eb4e13fac87da"
 }
 ```
 
@@ -267,31 +267,31 @@ signature": "IBjCxKFjpgsrG79sRRLnKLBqcH6RE4/EWkdgF3wS2n3uP17Ty4AhstbyyaUXuUBFi9K
 
 **GET Stars By Address**
 ------
-* **URL:** `/stars/hash:{ADDRESS}`
+* **URL:** `/stars/address:{ADDRESS}`
 * **Method:** `GET`
 * **URL Path Params:** `ADDRESS` (Address from the data of the block to be retrieved)
 
 * **Success Response:**
-* **Code:** 200
-* **Content:**
+    * **Code:** 200
+    * **Content:**
 
 ```
 [
-{
-"hash": "eb62fd2d0a5ce809d7689f6f500c91dc6584b89e2d37c2d907e3366f3cd91a94",
-"height": 1,
-"body": {
-"address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
-"star": {
-"ra": "16h 29m 1.0s",
-"dec": "-26° 29' 24.9",
-"story": "4d792066697273742073746172",
-"storyDecoded": "My first star"
-}
-},
-"time": "1540148618",
-"previousBlockHash": "bd2fe75d3e8a0ebd61d8edc4455397901b917b427865c4ce535eb4e13fac87da"
-}
+    {
+        "hash": "eb62fd2d0a5ce809d7689f6f500c91dc6584b89e2d37c2d907e3366f3cd91a94",
+        "height": 1,
+        "body": {
+            "address": "1A5JvTrZZCesCcjH5NMRQaWvDtMXxJ3qfP",
+            "star": {
+                "ra": "16h 29m 1.0s",
+                "dec": "-26° 29' 24.9",
+                "story": "4d792066697273742073746172",
+                "storyDecoded": "My first star"
+            }
+        },
+        "time": "1540148618",
+        "previousBlockHash": "bd2fe75d3e8a0ebd61d8edc4455397901b917b427865c4ce535eb4e13fac87da"
+    }
 ]
 ```
 
